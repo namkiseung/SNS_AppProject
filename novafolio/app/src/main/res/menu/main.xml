@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_main_info"
+        android:orderInCategory="100"
+        android:title="내정보" />
+    <item
+        android:id="@+id/item_main_monitor"
+        android:orderInCategory="100"
+        android:title="모니터링" />
+    <item
+        android:id="@+id/item_main_community"
+        android:orderInCategory="100"
+        android:title="커뮤니티" />
+    <item
+        android:id="@+id/item_main_preferences"
+        android:orderInCategory="100"
+        android:title="환경설정"/>
+    <item
+        android:id="@+id/item_main_byebye"
+        android:orderInCategory="100"
+        android:title="회원탈퇴"/>
+
+</menu>

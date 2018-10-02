@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#4d66dc"
+    tools:context="com.namkit.namki.novafolio.Login">
+<!--어플 제목    -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffffff"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="NovaFolio"/>
+
+<!--아이디 입력구간-->
+    <EditText
+        android:id="@+id/edtext_id"
+        android:cursorVisible="true"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="팀원 아이디 : "/>
+<!--비밀번호 입력구간-->
+    <EditText
+        android:id="@+id/edtext_pwd"
+        android:cursorVisible="true"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idedittext"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textVisiblePassword"
+        android:password="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#999999"
+        android:hint="팀원 비밀번호 : "/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="25dp"
+    android:layout_marginLeft="60dp"
+    android:layout_marginBottom="15dp"
+    android:weightSum="2">
+    <CheckBox
+        android:id="@+id/Auto_MemoId"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="아이디 저장" />
+    <CheckBox
+        android:id="@+id/Auto_LogIn"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="자동로그인" />
+</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="#ffffff"/>
+<!--로그인버튼과 회원가입 버튼-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/btn_login"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#283245"
+            android:textColor="#ffffff"
+            android:text="로그인"/>
+        <Button
+            android:id="@+id/btn_signup"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#283245"
+            android:textColor="#ffffff"
+            android:text="회원가입"/>
+    </LinearLayout>
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#bbbbbb"
+            android:textSize="15sp"
+            android:text="ID / PW 분실 하였을때 찾아보기"/>
+        <Button
+            android:id="@+id/btn_signupcommit"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:background="#4d66dc"
+            android:text="찾아보기"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+

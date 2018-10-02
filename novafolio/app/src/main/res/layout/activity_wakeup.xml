@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.namkit.namki.novafolio.Wakeup.Wakeup">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="10dp"
+    android:textSize="20dp"
+    android:background="#4d66dc"
+    android:textColor="#000000"
+    android:text="기상시간 인증하기"/>
+
+    <!--<Button
+        android:id="@+id/btn_capture"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="사진찍기(작업중)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />-->
+    <Button
+        android:id="@+id/btn_album"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="앨범 등록 (URI 값 받아오기)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_albumadd"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="앨범등록 (비트맵 이용중)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/layout1"
+        android:background="#ffeeeeee"
+        android:numColumns="2"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        android:layout_margin="8dp"/>
+  <!--  <ImageView
+        android:id="@+id/iv_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
+
+</LinearLayout>

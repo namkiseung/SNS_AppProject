@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fade"
+        android:title="Fade in"
+        android:orderInCategory="100"
+        />
+    <item
+        android:id="@+id/slideLeft"
+        android:title="Slide in left"
+        android:orderInCategory="100"
+        />
+    <item
+        android:id="@+id/slideUp"
+        android:title="Slide in up"
+        android:orderInCategory="100"
+        />
+    <item
+        android:id="@+id/shake"
+        android:title="Shake"
+        android:orderInCategory="100"
+        />
+    <item
+        android:id="@+id/scale"
+        android:title="Scale"
+        android:orderInCategory="100"
+        />
+</menu>
+
+<!--URL : https://www.youtube.com/watch?v=Xyo4bMMJ5ls-->
+<!--제목 : ListView Animation In Android-->

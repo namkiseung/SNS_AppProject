@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/colorPrimary"
+    android:gravity="center_vertical">
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="2dp"/>
+  <TextView
+        android:textColor="@android:color/white"
+        android:text="TEAMNOVA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!--tools:text="접속 IP"-->
+   <!-- <TextView
+        android:id="@+id/user_name_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        tools:text="이름"/>
+    <TextView
+        android:id="@+id/user_age_main"
+      android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        tools:text="나이"/>-->
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.namkit.namki.novafolio.Record">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:background="#4d66dc"
+        android:textColor="#000000"
+        android:text="  [개발일지] 게시글 작성"/>
+
+    <EditText android:id="@+id/daily_title_edit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:inputType="text"
+        android:singleLine="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:hint="ex) 2018.03.04 (제목입력)"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#4d66dc"/>
+
+    <EditText android:id="@+id/daily_content_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:hint="내용을 입력하세요."/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_edit"
+                android:layout_toRightOf="@+id/btn_save"
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:layout_height="60dp"
+                android:background="#999999"
+                android:textSize="25sp"
+                android:text="수정"/>
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="1dp"
+        android:layout_margin="2dp"
+        android:layout_height="60dp"
+        android:background="#999999"
+        android:layout_weight="1"
+        android:textSize="25sp"
+        android:text="등록"/>
+       </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

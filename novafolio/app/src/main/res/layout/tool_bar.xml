@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.Toolbar
+        android:background="#4d66dc"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="NovaFolio"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
+
+        <!--<ImageButton
+            android:foreground="?attr/selectableItemBackground"
+            android:id="@+id/toolbar_open"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_reorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />-->
+
+    </android.support.v7.widget.Toolbar>
+</LinearLayout>
