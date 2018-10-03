@@ -24,3 +24,6 @@
    -Detail 수정(activity)
    -팔로잉/팔로워
    -팔로워만 리사이클뷰 이미지 
+   -register 추가
+   -push기능
+   -okhttp
