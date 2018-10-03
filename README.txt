@@ -1,5 +1,5 @@
 ﻿# SNS_AppProject- 코틀린 (Kotlin) 
-(참고 : Howl 강의)
+(참조 : Howl)
 
 10-02
    1. 로그인 기능 작업중 
