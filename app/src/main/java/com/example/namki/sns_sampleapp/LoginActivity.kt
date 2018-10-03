@@ -160,19 +160,17 @@ class LoginActivity : AppCompatActivity() {
                     }
                 })
     }
-    fun handleFacebookAccessToken(token:AccessToken?){//파베 서버에 넘기자(google token)
-        var credential = FacebookAuthProvider.getCredential(token?.token!!)
-        auth?.signInWithCredential(credential)?.addOnCompleteListener{
-            task ->
-            println("task"+task.isSuccessful)
-            progress_bar.visibility = View.GONE
-            if (task.isSuccessful) {
-                moveMainPage(auth?.currentUser)
-            }
-        }?.addOnFailureListener{
-            exception ->
-            println("exception"+exception.message)
-        }
+
+    fun handleFacebookAccessToken(token: AccessToken?) { //파베 서버에 넘기자(google token)
+        val credential = FacebookAuthProvider.getCredential(token!!.token)
+        auth?.signInWithCredential(credential)
+                ?.addOnCompleteListener { task ->
+                    progress_bar.visibility = View.GONE
+                    //다음 페이지 이동
+                    if (task.isSuccessful) {
+                        moveMainPage(auth?.currentUser)
+                    }
+                }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) { //구글로그인 버튼 클릭~이후 넘어오는 값 처리(GOOGLE_LOGIN_CODE)
         super.onActivityResult(requestCode, resultCode, data)
