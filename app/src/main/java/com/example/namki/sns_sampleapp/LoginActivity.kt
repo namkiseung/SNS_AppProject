@@ -1,5 +1,6 @@
 package com.example.namki.sns_sampleapp
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -41,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
+
         email_login_button.setOnClickListener{//일반 로그인버튼
             createAndLoginEmail()
         }
@@ -54,27 +56,28 @@ class LoginActivity : AppCompatActivity() {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
+
         googleSignInClient = GoogleSignIn.getClient(this,gso) //구글 로그인하는 클래스 생성됨
-        printHashKey(this)
+        //printHashKey(this)
         callbackManager = CallbackManager.Factory.create() //not exist and Initialize Facebook Login btn
     }
 
-    fun printHashKey(pContext: Context) {
-        try {
-            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
-            for (signature in info.signatures) {
-                val md = MessageDigest.getInstance("SHA")
-                md.update(signature.toByteArray())
-                val hashKey = String(Base64.encode(md.digest(),0))
-                Log.i("namki", "printHashKey() Hash Key: $hashKey")
-            }
-        } catch (e: NoSuchAlgorithmException) {
-            Log.e("namki", "printHashKey()", e)
-        } catch (e: Exception) {
-            Log.e("namki", "printHashKey()", e)
-        }
-
-    }
+//    fun printHashKey(pContext: Context) {
+//        try {
+//            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+//            for (signature in info.signatures) {
+//                val md = MessageDigest.getInstance("SHA")
+//                md.update(signature.toByteArray())
+//                val hashKey = String(Base64.encode(md.digest(),0))
+//                Log.i("namki", "printHashKey() Hash Key: $hashKey")
+//            }
+//        } catch (e: NoSuchAlgorithmException) {
+//            Log.e("namki", "printHashKey()", e)
+//        } catch (e: Exception) {
+//            Log.e("namki", "printHashKey()", e)
+//        }
+//
+//    }
 
     fun createAndLoginEmail() {
         auth?.createUserWithEmailAndPassword(email_edittext.text.toString(), password_edittext.text.toString())
@@ -101,7 +104,7 @@ class LoginActivity : AppCompatActivity() {
     fun signinEmail() {
         auth?.signInWithEmailAndPassword(email_edittext.text.toString(), password_edittext.text.toString())
                 ?.addOnCompleteListener { task ->
-                    //progress_bar.visibility = View.GONE
+                    progress_bar.visibility = View.GONE
                     if (task.isSuccessful) {//로그인 성공 및 다음페이지 호출
                         moveMainPage(auth?.currentUser)  //세션가지고 있어서 넘긴다
                     } else { //로그인 실패
@@ -113,12 +116,9 @@ class LoginActivity : AppCompatActivity() {
 
         if (email_edittext.text.toString().isNullOrEmpty() || password_edittext.text.toString().isNullOrEmpty()) {
             Toast.makeText(this, getString(R.string.signout_fail_null), Toast.LENGTH_SHORT).show()
-
         } else {
-
             progress_bar.visibility = View.VISIBLE
             createAndLoginEmail()
-
         }
     }
     fun moveMainPage(user: FirebaseUser?){
@@ -129,6 +129,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     fun googleLogin(){
+        progress_bar.visibility = View.VISIBLE
         var signInIntent = googleSignInClient?.signInIntent
         startActivityForResult(signInIntent,GOOGLE_LOGIN_CODE)
     }
@@ -138,8 +139,6 @@ class LoginActivity : AppCompatActivity() {
                 ?.addOnCompleteListener { task ->
                     progress_bar.visibility = View.GONE
                     if (task.isSuccessful) {
-
-
                         //다음페이지 호출
                         moveMainPage(auth?.currentUser)
                     }
@@ -161,11 +160,15 @@ class LoginActivity : AppCompatActivity() {
                     }
                 })
     }
-    fun handleFacebookAccessToken(token:AccessToken?){//파베 서버에 넘기자
+    fun handleFacebookAccessToken(token:AccessToken?){//파베 서버에 넘기자(google token)
         var credential = FacebookAuthProvider.getCredential(token?.token!!)
         auth?.signInWithCredential(credential)?.addOnCompleteListener{
             task ->
             println("task"+task.isSuccessful)
+            progress_bar.visibility = View.GONE
+            if (task.isSuccessful) {
+                moveMainPage(auth?.currentUser)
+            }
         }?.addOnFailureListener{
             exception ->
             println("exception"+exception.message)
@@ -175,19 +178,21 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         callbackManager?.onActivityResult(requestCode, resultCode, data)// Facebook SDK로 값 넘겨주기
 
-        if(requestCode == GOOGLE_LOGIN_CODE){
+        if(requestCode == GOOGLE_LOGIN_CODE && resultCode == Activity.RESULT_OK){
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data) //구글에서 data넘어오는것
             if(result.isSuccess){
                 var account = result.signInAccount
                 firebaseAuthWithGoogle(account!!)
+            }else{
+                progress_bar.visibility = View.GONE
             }
         }
     }
 
-    override fun onResume() {  //자동로그인
-        super.onResume()
-        moveMainPage(auth?.currentUser)
-    }
+//    override fun onResume() {  //자동로그인
+//        super.onResume()
+//        moveMainPage(auth?.currentUser)
+//    }
     override fun onStart() {
         super.onStart()
         //자동 로그인 설정

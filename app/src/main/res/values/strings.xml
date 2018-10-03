@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Namkistagram</string>
+    <string name="app_name">Namkigram</string>
     <string name="facebook_app_id">306649546801034</string>
     <string name="fb_login_protocol_scheme">fb306649546801034</string>
     <string name="com.twitter.sdk.android.CONSUMER_KEY"></string>

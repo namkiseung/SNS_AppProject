@@ -1,4 +1,4 @@
-# SNS_AppProject- 코틀린 (Kotlin) 
+﻿# SNS_AppProject- 코틀린 (Kotlin) 
 (참고 : Howl 강의)
 
 10-02
@@ -16,5 +16,8 @@
    -firebase(Firestore, auth, Storage)
    -contentDTO 객체 만들어 사용
    -리사이클러뷰(어뎁터의 item은 item_detail.xml로 구현)
+   -파베에 저장된 이미지를 어댑터 연결
+   -for문 사용 데이터 로드
+   -좋아요 기능 추가(트랜잭션 필수)
     
     
